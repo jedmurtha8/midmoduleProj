@@ -1,0 +1,195 @@
+/*
+    style.css - this stylesheet is linked from index.html to apply styles to the products home page.
+    Add all of your custom styles here.
+*/
+
+/* 1. create a header - GOOD
+      display a centered logo - GOOD
+      700x200px - GOOD
+      center on the page - GOOD
+      always display on the top of the viewport - XXX
+      looks like wirefrane - GOOD
+
+   2. add a nav element after header and before main - GOOD
+      Have a Home, Cart, and Logout link - GOOD
+      Home/Cart links should be left justified - GOOD
+      Logout should be right justified - GOOD
+      always display at the top of the view port under header - XXX
+      looks like wire-frame - GOOD
+
+   3. add a footer after main - GOOD
+      always diplay at the bottom of viewport - XXX
+
+   4. Style main so it scrolls if content doesn't fit - GOOD
+
+   5. Style product cards using flex-box to match wire frame at various widths - GOOD
+
+   6. Use grid to style product cards like wire-frames - GOOD
+
+   7. Remove hardcoded cards
+*/
+body {
+    margin: 0;
+    border: 3px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "banner banner banner banner"
+        "nav-bar nav-bar nav-bar nav-bar"
+        "search-bar search-bar search-bar search-bar"
+        "products products products products"
+        "footer footer footer footer";
+}
+
+header {
+    display: flex;
+    grid-area: banner;
+    border-bottom: 3px solid black;
+    position: sticky;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    background-color: rgb(8, 45, 78);
+    justify-content: center;
+}
+
+#header-image {
+    display: grid;
+    width: 400px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    grid-area: nav-bar;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 3px solid black;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    position: sticky;
+    z-index: 999;
+    top: 200px;
+    background-color: lightblue;
+}
+
+nav #home-link {
+    display: flex;
+    justify-content: left;
+    margin-right: 7px;
+    margin-left: 10px;
+}
+
+nav #cart-link {
+    display: flex;
+    justify-content: left;
+}
+
+nav #logout-link {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+#searchBar {
+    display: flex;
+    justify-content: space-between;
+    grid-area: search-bar;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+main {
+    display: flex;
+    margin: 3px;
+    grid-area: products;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    border: 3px solid pink;
+}
+
+#product-cards {
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    border: 2px solid black;
+    display: grid;
+    margin: 10px;
+    padding: 5px;
+    grid-template-columns: 350px;
+    grid-template-areas:
+        "sku-price"
+        "name"
+        "img"
+        "cart";
+    flex-wrap: wrap;
+}
+
+.sku {
+    display: flex;
+    grid-area: sku-price;
+    justify-content: left;
+}
+
+.price {
+    display: flex;
+    grid-area: sku-price;
+    justify-content: right;
+}
+
+.product-name {
+    display: flex;
+    grid-area: name;
+    justify-content: left;
+    
+}
+
+.product-image {
+    display: flex;
+    grid-area: img;
+    width: 100%;
+}
+
+.product-image > img {
+    border: 1px none black;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.cart {
+    margin-top: 3px;
+    display: flex;
+    grid-area: cart;
+    justify-content: right;
+}
+.cart:hover {
+    cursor: pointer;
+}
+
+#app {
+    display: grid;
+    width: 100%;
+    grid-area: footer;
+}
+
+footer {
+    display: flex;
+    border-top: 3px solid black;
+    padding-left: 5px;
+    justify-content: left;
+    background-color: lightblue;
+    margin-bottom: 0;
+}
+
+#app {
+    position: sticky;
+    z-index: 999;
+    bottom: 0;
+}
